@@ -2,7 +2,7 @@
 import argparse
 import random
 from random import randrange
-
+import os
 import evaluate
 import numpy as np
 import torch
@@ -10,6 +10,15 @@ from datasets import load_dataset, load_from_disk
 from peft import PeftConfig, PeftModel
 from tqdm import tqdm
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+
+# 获取脚本文件的绝对路径
+script_path = os.path.abspath(__file__)
+
+# 获取脚本文件的目录
+script_dir = os.path.dirname(script_path)
+
+# 设置当前工作目录为脚本文件的目录
+os.chdir(script_dir)
 
 
 def get_args():
@@ -51,7 +60,6 @@ if __name__ == "__main__":
     args = get_args()
 
     # Load peft config for pre-trained checkpoint etc.
-
     if args.with_lora:
         # Load peft config for pre-trained checkpoint etc.
         peft_model_id = "results_large"

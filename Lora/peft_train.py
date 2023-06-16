@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import argparse
-
+import os
 import numpy as np
 from datasets import concatenate_datasets, load_dataset
 from peft import LoraConfig, TaskType, get_peft_model, prepare_model_for_int8_training
@@ -12,6 +12,14 @@ from transformers import (
     Seq2SeqTrainingArguments,
 )
 
+# 获取脚本文件的绝对路径
+script_path = os.path.abspath(__file__)
+
+# 获取脚本文件的目录
+script_dir = os.path.dirname(script_path)
+
+# 设置当前工作目录为脚本文件的目录
+os.chdir(script_dir)
 
 def get_args():
     # add arguments, with_lora
@@ -177,5 +185,4 @@ if __name__ == "__main__":
     # Save our LoRA model & tokenizer results
     trainer.model.save_pretrained(peft_model_id)
     tokenizer.save_pretrained(peft_model_id)
-    # if you want to save the base model to call
-    # trainer.model.base_model.save_pretrained(peft_model_id)
+
