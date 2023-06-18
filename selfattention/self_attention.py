@@ -44,10 +44,10 @@ print(f"x = {x}")
 output = att(x)
 print(f"output.shape ={output.shape} ,value = {output}")
 '''
-output.shape =torch.Size([4, 3]) ,value = tensor([[0.7370, 0.9929, 0.0317],
-        [0.7370, 0.9956, 0.0350],
-        [0.7373, 1.0046, 0.0452],
-        [0.7371, 0.9960, 0.0353]], grad_fn=<MmBackward0>)
+output.shape =torch.Size([1, 4, 3]) ,value = tensor([[[ 0.5370, -0.7457,  0.2682],
+         [ 0.5370, -0.7461,  0.2690],
+         [ 0.5382, -0.7431,  0.2622],
+         [ 0.5346, -0.7491,  0.2763]]], grad_fn=<UnsafeViewBackward0>)
 '''
 
 
