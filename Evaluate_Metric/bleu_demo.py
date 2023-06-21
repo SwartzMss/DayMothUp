@@ -19,7 +19,7 @@ def tokenize(s):
         return word_tokenize(s)
 
 # 假设我们有一个参考句子和一个模型生成的句子
-reference_sentence = '这是一个测试'
+reference_sentence = '这是一个小测试'
 candidate_sentence = '这是一个测试'
 
 # 使用tokenize函数进行分词
@@ -30,3 +30,4 @@ candidate = tokenize(candidate_sentence)
 score = sentence_bleu(reference, candidate)
 
 print(score)
+#8.987727354491445e-155
